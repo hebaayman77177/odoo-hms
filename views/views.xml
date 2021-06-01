@@ -1,0 +1,70 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <!-- <record model="ir.ui.view" id="hotel_managment_system_doctor_action">
+      <field name="name">Doctors</field>
+      <field name="model">hotel_managment_system_doctor</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="first_name" />
+          <field name="last_name" />
+          <field name="img" />
+        </tree>
+      </field>
+    </record> -->
+
+
+    <!-- actions opening views on models -->
+    
+    <record model="ir.actions.act_window" id="hotel_managment_system_doctor_action">
+      <field name="name">Doctors</field>
+      <field name="res_model">hotel_managment_system_doctor</field>
+      <field name="view_mode">form</field>
+    </record>
+    <record model="ir.actions.act_window" id="hotel_managment_system_department_action">
+      <field name="name">Departments</field>
+      <field name="res_model">hotel_managment_system_department</field>
+      <field name="view_mode">form</field>
+    </record>
+    <record model="ir.actions.act_window" id="hotel_managment_system_patient_action">
+      <field name="name">Patients</field>
+      <field name="res_model">hotel_managment_system_patient</field>
+      <field name="view_mode">form</field>
+    </record>
+
+
+    <!-- server action to the one above -->
+    <!--
+    <record model="ir.actions.server" id="hotel_managment_system.action_server">
+      <field name="name">hotel_managment_system server</field>
+      <field name="model_id" ref="model_hotel_managment_system_hotel_managment_system"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+
+    <menuitem name="HMS" id="hotel_managment_system_menu_root" />
+
+    <!-- menu categories -->
+
+    <menuitem name="Doctors" id="hotel_managment_system_doctors" parent="hotel_managment_system_menu_root" />
+    <menuitem name="Departments" id="hotel_managment_system_departments" parent="hotel_managment_system_menu_root" />
+    <menuitem name="Patients" id="hotel_managment_system_patients" parent="hotel_managment_system_menu_root" />
+    <!-- actions -->
+
+    <menuitem name="Doctor" id="hotel_managment_system_doctor" parent="hotel_managment_system_doctors" action="hotel_managment_system_doctor_action" />
+    <menuitem name="Department" id="hotel_managment_system_department" parent="hotel_managment_system_departments" action="hotel_managment_system_department_action" />
+    <menuitem name="Patient" id="hotel_managment_system_patient" parent="hotel_managment_system_patients" action="hotel_managment_system_patient_action" />
+    <!-- <menuitem name="Server to list" id="hotel_managment_system" parent="hotel_managment_system.menu_2"
+              action="hotel_managment_system.action_server"/> -->
+  </data>
+</odoo>
